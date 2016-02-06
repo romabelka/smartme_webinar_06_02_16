@@ -1,14 +1,17 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
 
 class SimpleComponent extends Component {
-    static propTypes = {
-
-    };
+    constructor(...args) {
+        super(...args)
+        this.state = {
+            counter: this.props.initialCounter
+        }
+    }
 
     render() {
         return (
             <div>
-                <h1>Hello world</h1>
+                Counter: {this.state.counter}
             </div>
         )
     }
