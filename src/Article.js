@@ -7,6 +7,10 @@ class Article extends Component {
         comments: PropTypes.array
     };
 
+    shouldComponentUpdate(newProps, newState) {
+        return this.props.title != newProps.title
+    }
+
     render() {
         return (
             <div>

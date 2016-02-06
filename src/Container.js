@@ -34,9 +34,17 @@ class SimpleComponent extends Component {
                 Counter: {this.state.counter}
                 <a href = "#" onClick = {this.handleClick}>increment</a>
                 <h2>Article:</h2>
+                <a href="#" onClick = {this.changeUser}>change user</a>
                 <Article title = "some title" comments = {['comment 1', 'comment 2']}/>
             </div>
         )
+    }
+
+    changeUser = (ev) => {
+        ev.preventDefault()
+        this.setState({
+            username: 'Vasya'
+        })
     }
 
     handleClick = (ev) => {
