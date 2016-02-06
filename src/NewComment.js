@@ -4,6 +4,9 @@ class NewComment extends Component {
     static propTypes = {
 
     };
+    state = {
+        text: ''
+    }
 
     static contextTypes = {
         username: PropTypes.string
@@ -12,10 +15,22 @@ class NewComment extends Component {
     render() {
         return (
             <div>
-                <input />
+                <input value = {this.state.text} onChange = {this.handleChange}/>
+                <a href = "#" onClick = {this.addComment}>add comment</a>
                 by {this.context.username}
             </div>
         )
+    }
+
+    handleChange= (ev) => {
+        this.setState({
+            text: ev.target.value
+        })
+    };
+
+    addComment = (ev) => {
+        ev.preventDefault()
+        this.props.addComment(this.state.text)
     }
 }
 
