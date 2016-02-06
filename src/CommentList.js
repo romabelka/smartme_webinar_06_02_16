@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react'
+import NewComment from './NewComment'
 
 class Comment extends Component {
     static propTypes = {
@@ -13,6 +14,7 @@ class Comment extends Component {
             <div>
                 comments:
                 <ul>{comments}</ul>
+                <NewComment />
             </div>
         )
     }

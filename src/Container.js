@@ -5,12 +5,23 @@ class SimpleComponent extends Component {
     constructor(...args) {
         super(...args)
         this.state = {
-            counter: this.props.initialCounter
+            counter: this.props.initialCounter,
+            username: 'Roma'
         }
     }
 
     static propTypes = {
         initialCounter: PropTypes.number.isRequired
+    }
+
+    static childContextTypes = {
+        username: PropTypes.string
+    }
+
+    getChildContext() {
+        return {
+            username: this.state.username
+        }
     }
 
     componentDidMount() {
