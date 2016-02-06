@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import NewComment from './NewComment'
+require('./styles.css')
 
 class CommentList extends Component {
     static propTypes = {
@@ -12,7 +13,7 @@ class CommentList extends Component {
 
     render() {
         const comments = this.props.comments.concat(this.state.newComments).map((comment) => {
-            return <li key={comment}>{comment}</li>
+            return <li key={comment} className="border-red">{comment}</li>
         })
         return (
             <div>
