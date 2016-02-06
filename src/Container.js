@@ -1,5 +1,7 @@
 import React, { Component, PropTypes } from 'react'
+import { findDOMNode } from 'react-dom'
 import Article from './Article'
+
 
 class SimpleComponent extends Component {
     constructor(...args) {
@@ -25,17 +27,18 @@ class SimpleComponent extends Component {
     }
 
     componentDidMount() {
-
+        console.log('div: ', this.refs.topContainer)
+        console.log('---', 'custom component: ', findDOMNode(this.refs.custom));
     }
 
     render() {
         return (
-            <div>
+            <div ref = "topContainer">
                 Counter: {this.state.counter}
                 <a href = "#" onClick = {this.handleClick}>increment</a>
                 <h2>Article:</h2>
                 <a href="#" onClick = {this.changeUser}>change user</a>
-                <Article title = "some title" comments = {['comment 1', 'comment 2']}/>
+                <Article ref = 'custom' title = "some title" comments = {['comment 1', 'comment 2']}/>
             </div>
         )
     }

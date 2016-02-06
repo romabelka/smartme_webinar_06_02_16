@@ -12,6 +12,7 @@ class Article extends Component {
     }
 
     render() {
+        if (!this.props.title) return <h3>No title</h3>
         return (
             <div>
                 {this.props.title}
