@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
+import Article from './Article'
 
 class SimpleComponent extends Component {
     constructor(...args) {
@@ -6,6 +7,10 @@ class SimpleComponent extends Component {
         this.state = {
             counter: this.props.initialCounter
         }
+    }
+
+    static propTypes = {
+        initialCounter: PropTypes.number.isRequired
     }
 
     componentDidMount() {
@@ -17,6 +22,8 @@ class SimpleComponent extends Component {
             <div>
                 Counter: {this.state.counter}
                 <a href = "#" onClick = {this.handleClick}>increment</a>
+                <h2>Article:</h2>
+                <Article title = "some title" comments = {['comment 1', 'comment 2']}/>
             </div>
         )
     }
